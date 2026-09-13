@@ -10,7 +10,7 @@
 # ==========================================================================
 
 # --- Core ML / CV stack ---
-tensorflow==2.15.0          # Colab: full TF. On Pi, consider tflite-runtime instead (see below)
+tensorflow          # Colab: full TF. On Pi, consider tflite-runtime instead (see below)
 mediapipe==0.10.9           # Landmark extraction (Holistic / Hands) - works on both Colab & Pi
 opencv-python==4.9.0.80     # Video capture + frame processing
 numpy==1.26.4
