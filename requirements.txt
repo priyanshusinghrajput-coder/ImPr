@@ -1,0 +1,41 @@
+# ==========================================================================
+# DSLR - Dynamic Sign Language Recognition System
+# requirements.txt
+#
+# NOTE: Some packages differ between the Colab training environment (GPU,
+# full TensorFlow) and the Raspberry Pi inference environment (ARM, CPU-only,
+# lightweight). Where relevant this is called out below. If you want strict
+# separation, use requirements-train.txt / requirements-pi.txt instead
+# (see bottom of this file for the split).
+# ==========================================================================
+
+# --- Core ML / CV stack ---
+tensorflow==2.15.0          # Colab: full TF. On Pi, consider tflite-runtime instead (see below)
+mediapipe==0.10.9           # Landmark extraction (Holistic / Hands) - works on both Colab & Pi
+opencv-python==4.9.0.80     # Video capture + frame processing
+numpy==1.26.4
+pandas==2.2.0
+scikit-learn==1.4.0         # train_test_split, metrics, label encoding
+
+# --- Visualization / training utilities (Colab side mainly) ---
+matplotlib==3.8.2
+seaborn==0.13.2
+tqdm==4.66.1
+
+# --- Text-to-Speech (Raspberry Pi inference side) ---
+pyttsx3==2.90                # Offline, lightweight TTS (espeak backend on Linux/Pi)
+
+# --- Misc utilities ---
+gTTS==2.5.1                  # Optional: online fallback TTS with nicer voices (needs internet)
+
+# ==========================================================================
+# SPLIT INSTALL GUIDE (recommended for real deployments)
+# ==========================================================================
+# Colab / training machine:
+#   pip install tensorflow mediapipe opencv-python numpy pandas scikit-learn matplotlib seaborn tqdm
+#
+# Raspberry Pi (3B+/4/5) - lighter footprint, use TFLite runtime instead of full TF:
+#   pip install mediapipe opencv-python numpy pyttsx3
+#   pip install tflite-runtime            # ARM wheel, much smaller & faster than full tensorflow
+#   sudo apt-get install espeak libespeak1  # pyttsx3 dependency on Linux/Raspberry Pi OS
+# ==========================================================================
