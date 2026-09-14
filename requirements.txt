@@ -11,22 +11,22 @@
 
 # --- Core ML / CV stack ---
 tensorflow          # Colab: full TF. On Pi, consider tflite-runtime instead (see below)
-mediapipe==0.10.9           # Landmark extraction (Holistic / Hands) - works on both Colab & Pi
-opencv-python==4.9.0.80     # Video capture + frame processing
-numpy==1.26.4
-pandas==2.2.0
-scikit-learn==1.4.0         # train_test_split, metrics, label encoding
+mediapipe           # Landmark extraction (Holistic / Hands) - works on both Colab & Pi
+opencv-python    # Video capture + frame processing
+numpy
+pandas
+scikit-learn         # train_test_split, metrics, label encoding
 
 # --- Visualization / training utilities (Colab side mainly) ---
-matplotlib==3.8.2
-seaborn==0.13.2
-tqdm==4.66.1
+matplotlib
+seaborn
+tqdm
 
 # --- Text-to-Speech (Raspberry Pi inference side) ---
-pyttsx3==2.90                # Offline, lightweight TTS (espeak backend on Linux/Pi)
+pyttsx3                # Offline, lightweight TTS (espeak backend on Linux/Pi)
 
 # --- Misc utilities ---
-gTTS==2.5.1                  # Optional: online fallback TTS with nicer voices (needs internet)
+gTTS                  # Optional: online fallback TTS with nicer voices (needs internet)
 
 # ==========================================================================
 # SPLIT INSTALL GUIDE (recommended for real deployments)
